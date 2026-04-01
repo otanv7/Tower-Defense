@@ -86,8 +86,8 @@
     <div onclick="showCharacterList()" class="menu-card bg-emerald-900/85 backdrop-blur border-4 border-emerald-400 rounded-3xl p-8 w-full lg:w-72 cursor-pointer shadow-2xl">
       <div class="flex flex-col items-center text-center">
         <div class="text-6xl mb-4" style="animation:menuFloat 3s ease-in-out infinite">🏰</div>
-        <h2 class="text-3xl font-bold mb-2">รายชื่อตัวละคร<br>และศัตรู</h2>
-        <p class="text-emerald-200 text-sm">30 หอคอย + 50 ศัตรู</p>
+        <h2 class="text-3xl font-bold mb-2">ตัวละคร<br>และศัตรู</h2>
+        <p class="text-emerald-200 text-sm">รายชื่อทั้งหมด</p>
         <div class="mt-4 flex gap-2 flex-wrap justify-center">
           <span class="text-xs bg-emerald-700 rounded-full px-3 py-1">🏹 นักธนู</span>
           <span class="text-xs bg-emerald-700 rounded-full px-3 py-1">🐉 มังกร</span>
@@ -103,7 +103,6 @@
           🏰 TOWER DEFENSE ⚔️
         </div>
         <h1 class="text-6xl lg:text-7xl font-bold tracking-tighter drop-shadow-2xl">ป้องกันหอคอย</h1>
-        <p class="text-xl text-emerald-300 mt-2">ราชอาณาจักรของคุณถูกโจมตี!</p>
         <div class="mt-5 inline-flex items-center gap-3 bg-black/40 backdrop-blur rounded-3xl px-6 py-3 border border-emerald-700">
           <span class="text-3xl">💰</span>
           <div class="text-left">
@@ -113,7 +112,7 @@
         </div>
       </div>
       <button onclick="showDifficultySelect()" class="play-btn text-black text-3xl font-bold px-14 py-7 rounded-3xl shadow-2xl flex items-center gap-5 mx-auto hover:scale-105 transition-transform">
-        เข้าเล่นเกม <span class="text-4xl">▶️</span>
+        เล่นเกม <span class="text-4xl">▶️</span>
       </button>
       <p class="mt-4 text-emerald-400 text-sm">10 ระดับความยาก · 15 แผนที่ · 30 หอคอย</p>
     </div>
@@ -124,12 +123,13 @@
         <div class="flex flex-col items-center text-center">
           <div class="text-5xl mb-3" style="animation:menuFloat 2.5s ease-in-out infinite 0.5s">⚙️</div>
           <h2 class="text-2xl font-bold">ตั้งค่า</h2>
+          <p class="text-yellow-300 text-xs mt-1">การตั้งค่าพื้นฐาน</p>
         </div>
       </div>
       <div onclick="showShop()" class="menu-card bg-emerald-900/85 backdrop-blur border-4 border-purple-400 rounded-3xl p-7 w-72 cursor-pointer shadow-2xl">
         <div class="flex flex-col items-center text-center">
           <div class="text-5xl mb-3" style="animation:menuFloat 3.5s ease-in-out infinite 1s">🛒</div>
-          <h2 class="text-2xl font-bold">ซื้อหอคอย</h2>
+          <h2 class="text-2xl font-bold">ซื้อตัวละคร</h2>
           <p class="text-purple-300 text-xs mt-1">ปลดล็อกด้วยเงินสะสม</p>
         </div>
       </div>
@@ -143,9 +143,9 @@
 <div id="character-list" class="screen hidden min-h-screen bg-emerald-950 p-8">
   <div class="max-w-7xl mx-auto">
     <button onclick="backToMain()" class="mb-6 bg-emerald-900 hover:bg-emerald-800 px-7 py-3 rounded-3xl transition-all">← กลับหน้าหลัก</button>
-    <h2 class="text-4xl font-bold mb-6">📜 รายชื่อทั้งหมด (30 หอคอย + 50 ศัตรู)</h2>
+    <h2 class="text-4xl font-bold mb-6">📜 รายชื่อทั้งหมด (30 ตัวละคร + 50 ศัตรู)</h2>
     <div class="flex gap-2 mb-6 border-b border-emerald-700">
-      <button onclick="switchTab(0)" id="tab-0" class="tab-button active px-8 py-4 text-xl font-medium rounded-t-3xl">🏹 หอคอย (30)</button>
+      <button onclick="switchTab(0)" id="tab-0" class="tab-button active px-8 py-4 text-xl font-medium rounded-t-3xl">🏹 ตัวละคร (30)</button>
       <button onclick="switchTab(1)" id="tab-1" class="tab-button px-8 py-4 text-xl font-medium rounded-t-3xl">👾 ศัตรู (50)</button>
     </div>
     <div id="towers-list" class="scroll-list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"></div>
@@ -160,7 +160,7 @@
   <div class="max-w-7xl mx-auto">
     <div class="flex justify-between mb-8 flex-wrap gap-4 items-start">
       <div>
-        <h2 class="text-4xl font-bold">🛒 ร้านค้าหอคอย</h2>
+        <h2 class="text-4xl font-bold">🛒 ร้านค้าตัวละคร</h2>
         <p class="text-emerald-300 mt-1">เงินสะสม: <span id="shop-gold" class="text-yellow-400 font-bold text-2xl">0</span> 💰</p>
       </div>
       <button onclick="backToMain()" class="bg-emerald-900 hover:bg-emerald-800 px-7 py-3 rounded-3xl transition-all">← กลับหน้าหลัก</button>
@@ -186,7 +186,7 @@
 =================================================================== -->
 <div id="map-select-screen" class="screen hidden min-h-screen bg-emerald-950 flex items-center justify-center p-8">
   <div class="max-w-5xl w-full">
-    <h2 class="text-5xl font-bold text-center mb-8">🗺️ เลือกแผนที่ (15 แผนที่)</h2>
+    <h2 class="text-5xl font-bold text-center mb-8">🗺️ เลือกแผนที่</h2>
     <div id="map-grid" class="grid grid-cols-3 md:grid-cols-5 gap-5"></div>
     <button onclick="backToDifficulty()" class="mt-10 mx-auto block text-emerald-400 hover:text-white text-lg transition-colors">← กลับเลือกระดับ</button>
   </div>
@@ -199,7 +199,7 @@
   <div class="max-w-7xl mx-auto">
     <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
       <div>
-        <h2 class="text-4xl font-bold">🏰 เลือกหอคอย (3–5 ตัว)</h2>
+        <h2 class="text-4xl font-bold">🏰 เลือกตัวละคร</h2>
         <p id="select-count" class="text-emerald-300 text-lg mt-1">เลือกแล้ว <span class="font-bold text-green-400">0</span>/5 ตัว · ขั้นต่ำ 3 ตัว</p>
       </div>
       <div class="flex gap-3 items-center">
@@ -256,7 +256,7 @@
     </div>
 
     <div class="text-right hidden lg:block">
-      <div class="text-xs text-emerald-400 mb-1">หอคอยที่เลือก</div>
+      <div class="text-xs text-emerald-400 mb-1">ตัวละครที่เลือก</div>
       <div id="selected-towers-bar" class="flex gap-1"></div>
     </div>
   </div>
@@ -296,10 +296,10 @@
     <!-- RIGHT: Buy towers panel -->
     <div class="w-60 bg-emerald-900 border-l-4 border-emerald-500 p-3 flex flex-col overflow-y-auto">
       <div class="flex items-center justify-between mb-1">
-        <h3 class="font-bold text-base">🛒 วางหอคอย</h3>
+        <h3 class="font-bold text-base">🛒 วางตัวละคร</h3>
         <button onclick="closeTowerInfo()" id="close-info-btn" class="text-xs text-emerald-400 hover:text-white hidden">✕ ปิด</button>
       </div>
-      <p class="text-emerald-400 text-xs mb-2">เลือก → คลิกแผนที่เพื่อวาง<br>คลิกหอคอยที่วางแล้ว = ดูข้อมูล</p>
+      <p class="text-emerald-400 text-xs mb-2">เลือก → คลิกแผนที่เพื่อวาง<br>คลิกตัวละครที่วางแล้ว = ดูข้อมูล</p>
       <div id="buy-towers-list" class="space-y-2 flex-1"></div>
       <div class="mt-2 p-2 bg-emerald-950 rounded-xl text-xs text-emerald-500 leading-relaxed">
         💡 อัพ: +40%⚔️ +10%🎯 -15%⏱<br>
@@ -352,9 +352,9 @@
     <h2 id="result-title" class="text-5xl font-bold mb-3"></h2>
     <p id="result-subtitle" class="text-lg text-emerald-300 mb-6"></p>
     <div class="bg-emerald-950 rounded-2xl p-5 mb-6 space-y-3 text-left">
-      <div class="flex justify-between"><span>⚔️ ศัตรูสังหาร</span><span id="final-kills" class="font-bold text-orange-400"></span></div>
-      <div class="flex justify-between"><span>💰 เงินในเกม</span><span id="final-money" class="font-bold text-yellow-400"></span></div>
-      <div class="flex justify-between"><span>🎁 โบนัสสะสม</span><span id="bonus-gold" class="font-bold text-green-400"></span></div>
+      <div class="flex justify-between"><span>⚔️ ศัตรูสังหารได้</span><span id="final-kills" class="font-bold text-orange-400"></span></div>
+      <div class="flex justify-between"><span>💰 เงินในเกมที่เหลือ</span><span id="final-money" class="font-bold text-yellow-400"></span></div>
+      <div class="flex justify-between"><span>🎁 เงินสะสมที่ได้รับ</span><span id="bonus-gold" class="font-bold text-green-400"></span></div>
       <div class="flex justify-between border-t border-emerald-700 pt-3"><span>🏆 คะแนนรวม</span><span id="final-score" class="font-bold text-3xl"></span></div>
     </div>
     <button onclick="backToMainFromResult()" class="w-full py-5 text-2xl font-bold bg-green-500 hover:bg-green-400 text-black rounded-3xl transition-all">กลับหน้าหลัก</button>
@@ -826,8 +826,8 @@ const DIFFICULTIES = [
 // ======================================================================
 //  GAME STATE
 // ======================================================================
-let playerGold        = parseInt(localStorage.getItem('tdGold'))  || 1250;
-let unlockedTowerIds  = JSON.parse(localStorage.getItem('tdUnlocked')) || [1,2,3,4,5,6];
+let playerGold        = parseInt(localStorage.getItem('tdGold'))  || 0;
+let unlockedTowerIds  = JSON.parse(localStorage.getItem('tdUnlocked')) || [1,2,3];
 let currentMoney      = 300,  lives = 20;
 let currentWave       = 1,    maxWaves = 10;
 let selectedTowerTypes= [],   placedTowers = [],    activeEnemies = [],  projectiles = [];
@@ -1872,16 +1872,16 @@ function buyTower(id,event) {
 
 function settingClicked(num) {
   if (num===3) {
-    alert('📖 วิธีเล่น:\n• เลือกหอคอยจากแผงขวา แล้วคลิกบนแผนที่เพื่อวาง\n• คลิกหอคอยที่วางแล้ว เพื่อดูข้อมูล อัพเกรด หรือขาย\n• ⚡ 2× = เร่งความเร็วเกม\n• หอคอย Splash (🔵) ระเบิดโดนศัตรูหลายตัว\n• หอคอย Slow (❄️) ชะลอศัตรู 2 วินาที\n• Boss จะปรากฏทุกด่านที่ 5 และ 10\n• ศัตรู Elite มีเกราะลดดาเมจ');
+    alert('📖 วิธีเล่น:\n• เลือกตัวละครจากแผงขวา แล้วคลิกบนแผนที่เพื่อวาง\n• คลิกตัวละครที่วางแล้ว เพื่อดูข้อมูล อัพเกรด หรือขาย\n• ⚡ 2× = เร่งความเร็วเกม\n• ตัวละคร Splash (🔵) ระเบิดโดนศัตรูหลายตัว\n• ตัวละคร Slow (❄️) ชะลอศัตรู 2 วินาที\n• Boss จะปรากฏทุกด่านที่ 5 และ 10\n• ศัตรู Elite มีเกราะลดดาเมจ');
   }
   else if (num===4) showToast('📐 กราฟิก: Canvas 2D HD พร้อม AoE / Slow Effects','#1e40af',3000);
   else if (num===5) {
-    if (confirm('รีเซ็ตทุกอย่าง? ข้อมูลจะหายหมด!')) { localStorage.clear(); location.reload(); }
+    if (confirm('รีเซ็ตทุกอย่าง? ข้อมูลจะหายหมด!')) {  localStorage.clear(); location.reload(); }
   }
 }
 
 function startGame() {
-  if (selectedTowerTypes.length<3) { showToast('⚠️ เลือกหอคอยอย่างน้อย 3 ตัว!'); return; }
+  if (selectedTowerTypes.length<3) { showToast('⚠️ เลือกตัวละครอย่างน้อย 3 ตัว!'); return; }
   stopMenuAnimation();
   initAudio();
   stopAllMusic();
